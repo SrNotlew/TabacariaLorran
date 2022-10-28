@@ -15,7 +15,7 @@ class Produto(models.Model):
     estoque_minimo = models.PositiveIntegerField('estoque minimo',default=0)
 
     class Meta:
-        ordering = ('produto')
+        ordering = ('produto',)
 
     def __str__(self) -> str:
         return self.produto
