@@ -2,7 +2,13 @@
 
 {% block content%} 
     <div class="page-header">
-        <h2>Lista de Produtos</h2>
+        <h2 class="d-flex justify-content-between">Lista de Produtos
+            <span class="pull-right">
+                <a href="{% url 'produto:produto_add' %}">
+                    <button class="btn btn-primary"><span class="fa fa-plus"></span>Adicionar</button>
+                </a>
+            </span>
+        </h2>
 
         {% if object_list %}
 
@@ -39,7 +45,7 @@
                 </tbody>
             </table>
         {% else %}
-            <p class="alert alert-warning">Sem intens na lista</p>
+            <p class="alert alert-warning">Sem items na lista</p>
         {% endif %}
     </div>
 {% endblock content%}

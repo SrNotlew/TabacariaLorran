@@ -8,12 +8,15 @@ Controle de estoque
 *   Instale as dependencias
 *   Rode as migrações
 
-git clone https://github.com/rg3915/estoque.git
-cd estoque
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python contrib/env_gen.py
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
+
+Passos a ser feito quando for abrir o porjeto pela primeira vez em uma maquina ->
+
+    git clone https://github.com/rg3915/estoque.git
+    cd estoque
+    python3 -m venv .venv
+    .venv/bin/activate -Windows
+    pip install -r requirements.txt
+    python contrib/env_gen.py
+    python manage.py migrate
+    python manage.py createsuperuser
+    python manage.py runserver
