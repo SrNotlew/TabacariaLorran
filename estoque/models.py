@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from core.models import TimeStampedModel
 from produto.models import Produto
+from django.urls import reverse_lazy
 
 # Create your models here.
 
@@ -21,13 +22,16 @@ class Estoque(TimeStampedModel):
         ordering = ('-created',)
 
     def __str__(self) -> str:
-        return '{} - {} - {}'.format(self.pk, self.nf, self.created.strftime('%d - %m - %Y'))
+        return '{} - {} - {}'.format(self.pk, self.nf, self.created.strftime('%d-%m-%Y'))
 
+    def get_absolute_url(self):
+        return reverse_lazy("estoque:estoque_entrada_detail", kwargs={"pk": self.pk})
+    
     def nf_formatetd(self):
         return str(self.nf).zfill(4)
 
 class EstoqueItens(models.Model):
-    estoque = models.ForeignKey(Estoque, on_delete=models.CASCADE)
+    estoque = models.ForeignKey(Estoque, on_delete=models.CASCADE, related_name='estoques')
     produto=models.ForeignKey(Produto, on_delete=models.CASCADE)   
     quantidade = models.PositiveIntegerField()
     saldo = models.PositiveBigIntegerField()
