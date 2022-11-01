@@ -15,3 +15,4 @@ def estoque_entrada_detail(request,pk):
     obj = Estoque.objects.get(pk=pk)
     context = {'object': obj}
     return render(request, template_name, context)
+    
