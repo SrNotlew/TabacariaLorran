@@ -5,7 +5,7 @@
     <a class="right" href="{% url 'produto:produto_list' %}">Voltar</a>
     <h1 class="d-flex justify-content-between"> {{object}}
         <span>
-            <a href="">
+            <a href="{% url 'produto:produto_edit' object.pk%}">
                 <button type="button" class="btn btn-success">
                     <span class="fa fa-pencil"></span>Editar
                 </button>
